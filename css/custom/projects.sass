@@ -1,0 +1,208 @@
+@import variables.sass
+
+.projects
+  &__descr
+    max-width: 66%
+    margin-bottom: 30px
+    word-wrap: break-word
+  &__text-link
+    color: $primary
+    &:focus-visible
+      color: $white
+      background-color: $primary
+    &:hover
+      color: $light-primary
+    &:active
+      color: $dark-primary
+  &__text-tooltip
+    position: relative
+    &::before
+      content: attr(data-projects-tooltip)
+      position: absolute
+      left: -132px
+      bottom: 38px
+      min-width: 265px
+      width: 100%
+      padding: 10px
+      font-size: 12px
+      line-height: 16px
+      text-align: center
+      font-weight: 600
+      color: $white
+      background-color: $primary
+      visibility: hidden
+      opacity: 0
+      pointer-events: none
+      user-select: none
+      transform-origin: 50% bottom
+      transition-property: visibility, opacity
+      transition-duration: .3s
+      transition-timing-function: ease-in-out
+    &::after
+      content: ''
+      position: absolute
+      top: -7px
+      left: -2px
+      border: 10px solid transparent
+      border-top: 10px solid $primary
+      visibility: hidden
+      opacity: 0
+      pointer-events: none
+      user-select: none
+      transition-property: visibility, opacity
+      transition-duration: .3s
+      transition-timing-function: ease-in-out
+    &:focus-visible,
+    &:focus,
+    &:hover
+      outline: none
+      &::before,
+      &::after
+        visibility: visible
+        opacity: 1
+        pointer-events: auto
+        user-select: auto
+
+.tooltip
+  &__marker,
+  &__icon
+    transition: fill .3s
+  &:hover,
+  &:focus-visible,
+  &:focus
+    .tooltip__marker
+      fill: $light-primary !important
+    .tooltip__circle
+      stroke: $dark-primary
+  &:active
+    .tooltip__marker
+      fill: $dark-primary !important
+    .tooltip__icon
+      fill: $white
+
+.partners
+  display: flex
+  flex-direction: column
+  &__title
+    display: inline-block
+    margin-bottom: 20px
+    font-size: 24px
+    line-height: 32px
+    font-weight: 600
+    word-wrap: break-word
+  &__wrap
+    position: relative
+    display: flex
+    width: 100%
+    overflow: hidden
+  &__slider
+    width: 90%
+    max-width: 92%
+  &__nav
+    position: absolute
+    top: 50%
+    display: flex
+    justify-content: space-between
+    width: 100%
+    transform: translate(0, -50%)
+  &__swiper-slide
+    display: flex
+    justify-content: center
+    box-sizing: border-box
+  &__link
+    box-sizing: border-box
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 100%
+    height: 150px
+    outline: 1px solid #cacaca
+    outline-offset: -1px
+    object-fit: contain
+    object-position: center center
+    transition: border-color .3s ease-in-out
+    &:focus-visible
+      outline-color: $primary
+    &:hover
+      .partners__img
+        filter: grayscale(0)
+        opacity: 1
+    &:active
+      outline-color: $primary
+      .partners__img
+        filter: grayscale(0)
+        opacity: 1
+  &__img
+    max-width: 90%
+    max-height: 90%
+    filter: grayscale(1)
+    opacity: .5
+    transition-property: filter, opacity
+    transition-duration: .3s
+    transition-timing-function: ease-in-out
+  &__btn
+    width: 30px
+    height: 30px
+    border-radius: 50%
+    background-color: #cacaca
+    border: 2px solid transparent
+    transition-property: background-color, border
+    transition-duration: .3s
+    cursor: pointer
+    &::after
+      position: absolute
+      display: block
+      font-size: 10px
+      color: $white
+    &:focus-visible
+      border: 2px solid $primary
+    &:hover
+      background-color: $light-primary
+    &:active
+      background-color: $light-primary
+      border: 2px solid $primary
+
+
+@media screen and ( max-width: 1200px )
+  .projects
+    &__descr
+      max-width: 100%
+
+@media screen and ( max-width: 1024px )
+  .projects
+    &__descr
+      margin-bottom: 25px
+    &__text-link
+      font-size: 17px
+  .partners
+    &__link
+      height: 128px
+    &__img
+      max-width: 70%
+      max-height: 45%
+
+@media screen and ( max-width: 768px )
+  .partners
+    &__title
+      margin-bottom: 30px
+    &__slider
+      max-width: 85%
+    &__link
+      height: 106px
+    &__img
+      max-width: 60%
+
+@media screen and ( max-width: 320px )
+  .projects
+    &__descr
+      margin-bottom: 10px
+      line-height: 32px
+      letter-spacing: 1px
+  .partners
+    &__title
+      margin-bottom: 10px
+      font-size: 18px
+    &__slider
+      max-width: 67%
+    &__link
+      height: 67px

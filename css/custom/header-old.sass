@@ -1,0 +1,459 @@
+@import variables.sass
+
+
+.header
+  position: relative
+  z-index: 50
+  &__container
+    display: flex
+    justify-content: space-between
+  &__row
+    @include fbc
+  &__top-mid-col
+    display: flex
+    width: 80%
+  &__top-right-col
+    display: flex
+    justify-content: flex-end
+  &__top
+    min-height: 100px
+    padding: 28.5px 0
+    background-color: $black
+  &__bottom
+    min-height: 70px
+    padding: 22px 0
+    background-color: rgba(0, 0, 0, .4)
+  &__logo
+    display: inline-block
+    &:focus-visible
+      outline: 1px solid $primary
+      outline-offset: 5px
+  &__login
+    display: flex
+    align-items: center
+    max-width: 100px
+    font-size: 18px
+    line-height: 24.5px
+    color: $white
+    transition: color .3s
+    word-wrap: break-word
+    .icon-login
+      font-size: 13px
+      margin-right: 5px
+  &__login-text
+    margin-left: 1px
+  &__form
+    display: none !important
+    position: absolute
+    width: 0
+    height: 0
+    opacity: 0
+    visibility: hidden
+    transform: translate(150%, 0)
+    transition: transform .3s, opacity .3s
+  &__search-btn-open
+    display: none
+    width: 30px
+    height: 29px
+  &__form-btn-submit
+    width: 30px
+    height: 29px
+
+.topnav
+  display: flex
+  justify-content: center
+  width: 70%
+  &__item-login
+    display: none
+    margin-top: auto
+  &__list
+    @include fbc
+    width: 80%
+    margin-right: 100px
+  &__link
+    max-width: 95px
+    font-size: 18px
+    line-height: 24.5px
+    color: $white
+    word-break: break-word
+  &__burger
+    display: none
+
+.bottomnav
+  position: relative
+  z-index: 20
+  &__item
+    position: relative
+    padding: 2px 20px 2px 5px
+    &:not(:last-child)
+      margin-right: 87px
+    &:focus-within
+      outline: none
+      background-color: $primary
+  &__link
+    position: relative
+    display: inline-block
+    max-width: 200px
+    font-size: 18px
+    line-height: 23.5px
+    color: $white
+    word-wrap: break-word
+    &::after
+      content: ''
+      position: absolute
+      top: 8px
+      right: -14px
+      display: inline-block
+      width: 7px
+      height: 7px
+      border-left: 1px solid $white
+      border-bottom: 1px solid $white
+      transform: rotate(-45deg)
+      // transition: border-color .3s
+      transition-property: border-color, transform
+      transition-duration: .3s
+      transition-timing-function: ease-in-out
+    &:hover
+      &::after
+        border-color: $light-primary
+    &:active
+      &::after
+        border-color: $dark-primary
+  &__link-active
+    color: $light-primary
+    &::after
+      top: 10px
+      border-color: $light-primary
+      transform: rotate(135deg)
+
+.topform
+  position: relative
+  &__btn
+    position: absolute
+    left: 2px
+    top: 4px
+    margin-right: 12px
+    cursor: pointer
+    &:focus-visible
+      outline: 1px solid $primary
+      outline-offset: 1px
+  &__input
+    min-width: 218px
+    padding: 0
+    font-size: 18px
+    line-height: 24.5px
+    color: $white
+    background-color: transparent
+    border: unset
+    border-bottom: 1px solid $white
+    transition: border-bottom .3s
+    &::-webkit-input-placeholder
+      color: $white
+      transition: color .3s
+    &::-moz-placeholder
+      color: $white
+      transition: color .3s
+    &:-moz-placeholder
+      color: $white
+      transition: color .3s
+    &:-ms-input-placeholder
+      color: $white
+      transition: color .3s
+    &:focus::-webkit-input-placeholder
+      color: transparent
+    &:focus::-moz-placeholder
+      color: transparent
+    &:focus:-moz-placeholder
+      color: transparent
+    &:focus:-ms-input-placeholder
+      color: transparent
+    &:focus-visible,
+    &:hover
+      outline: none
+      border-bottom: 1px solid $light-primary
+    &:focus
+      border-bottom: 1px solid $primary
+
+
+.subnav
+  position: absolute
+  left: 0
+  padding: 40px
+  width: 300px
+  max-height: 300px
+  overflow-y: auto
+  background-color: rgba(0, 0, 0, .4)
+  transform: translateY(-276px)
+  visibility: hidden
+  opacity: 0
+  user-select: none
+  pointer-events: none
+  transition-property: visibility, opacity, transform
+  transition-duration: .3s
+  transition-timing-function: ease-in-out
+  z-index: 10
+  &__active
+    pointer-events: auto
+    transform: translateY(24px)
+    visibility: visible
+    opacity: 1
+  &__item
+    &:not(:last-child)
+      margin-bottom: 20px
+  &__link
+    position: relative
+    display: block
+    min-width: 220px
+    padding: 10px 14px
+    font-size: 14px
+    line-height: 20px
+    font-weight: 600
+    color: $white
+    background-position: center center
+    background-size: cover
+    outline: 2px solid transparent
+    transition: outline .3s
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background-color: transparent
+      transition: background-color .3s
+    &:focus-visible,
+    &:hover
+      outline: 2px solid $primary
+    &:active
+      outline: 2px solid $light-primary
+      &::before
+        background-color: #C283F366
+  .tintoretto
+    background-image: url('../img/dropdown/tintoretto.png')
+  .fridrikh
+    background-image: url('../img/dropdown/fridrikh.jpg')
+  .leonardo
+    background-image: url('../img/dropdown/leonardo.jpg')
+  .verrokiu
+    background-image: url('../img/dropdown/verrokiu.jpg')
+  .mone
+    background-image: url('../img/dropdown/mone.jpg')
+  .sisley
+    background-image: url('../img/dropdown/sisley.jpg')
+  .mane
+    background-image: url('../img/dropdown/mane.jpg')
+  .renuar
+    background-image: url('../img/dropdown/renuar.jpg')
+  .vangog
+    background-image: url('../img/dropdown/vangog.jpg')
+  .sezann
+    background-image: url('../img/dropdown/sezann.jpg')
+  .gogen
+    background-image: url('../img/dropdown/gogen.jpg')
+  .sera
+    background-image: url('../img/dropdown/sera.jpg')
+  .kandiyskiy
+    background-image: url('../img/dropdown/kandiyskiy.jpg')
+  .marinetty
+    background-image: url('../img/dropdown/marinetty.jpg')
+  .malevich
+    background-image: url('../img/dropdown/malevich.jpg')
+  .picasso
+    background-image: url('../img/dropdown/picasso.jpg')
+  .kappa
+    background-image: url('../img/dropdown/kappa.jpg')
+  .pratella
+    background-image: url('../img/dropdown/pratella.jpg')
+  .severiny
+    background-image: url('../img/dropdown/severiny.jpg')
+  .balla
+    background-image: url('../img/dropdown/balla.jpg')
+
+
+
+
+@media screen and ( max-width: 1199.98px )
+  .header
+    &__top-left-col
+      display: flex
+      justify-content: center
+    &__bottom
+      display: none
+    &__login
+      font-family: 'icon'
+      display: none
+
+    &__search-wrapper
+    &__search-btn-open
+      display: inline-block
+      transition: opacity .3s
+      &--active
+        opacity: 0
+        display: none
+    &__form-btn-submit
+      margin-right: 5px
+      padding-top: 5px
+    &__form-btn-close
+      display: none
+    &__form
+      width: 100%
+      transition: transform .3s
+      &--active
+        display: flex !important
+        position: relative
+        width: auto
+        height: auto
+        opacity: 1
+        visibility: visible
+        transform: translate(0%, 0)
+        transition: transform .3s, opacity .3s
+  .topnav
+    justify-content: flex-start
+    width: auto
+    order: -1
+    &__list
+      // display: none !important
+      position: absolute
+      top: 0
+      left: 0
+      height: 100vh
+      width: 100vw
+      padding: 100px 50px 50px 50px
+      flex-direction: column
+      justify-content: start !important
+      align-items: start
+      font-size: 24px
+      line-height: 64px
+      background-color: rgba(0, 0, 0, 0.9)
+      z-index: 100
+      transform: translateX(-101%)
+      transition: transform .3s
+      &--active
+        transform: translateX(0)
+        transition: transform .3s
+    &__item-login
+      position: relative
+      display: inline-block
+      border-radius: 50px
+    &__link
+      // display: block
+      // max-width: 100%
+      font-size: 24px
+      // line-height: 64px
+    &__burger
+      position: relative
+      display: inline-block
+      z-index: 110
+      .burger-close
+        // display: none
+        width: 0
+        height: 0
+        visibility: hidden
+        opacity: 0
+        transform: rotate(-45deg)
+        transition: transform .3s
+      .burger-open
+        // width: 36px
+        // height: 29px
+        font-size: 36px
+        visibility: visible
+        opacity: 1
+      &--active
+        .burger-open
+          width: 0
+          height: 0
+          visibility: hidden
+          opacity: 0
+        .burger-close
+          width: 29px
+          height: 29px
+          visibility: visible
+          opacity: 1
+          transform: rotate(0)
+          transition: transform .3s
+
+
+@media screen and ( max-width: 768px )
+  .header
+    &__search-wrapper
+      position: unset
+    &__form
+      align-items: center
+      justify-content: space-between
+      padding: 0 50px
+      background-color: $black
+      z-index: 250
+      &--active
+        position: absolute
+        left: 0
+        top: 0
+        bottom: 0
+        right: 0
+        width: 100%
+    &__form-btn-submit
+      margin-right: 10px
+      svg
+        width: 29px
+        height: 29px
+    &__form-btn-close
+      display: inline-block
+      svg
+        width: 25px
+        height: 25px
+    &__form-input
+      margin-right: 10px
+      min-width: 80%
+
+@media screen and ( max-width: 576px )
+  .container
+    padding: 0 20px
+  .header
+    &__logo
+      text-align: center
+      vertical-align: middle
+      img
+        max-width: 80%
+
+@media screen and ( max-width: 320px )
+  .container
+    padding: 0 15px
+  .header
+    &__top
+      display: flex
+      align-items: center
+      min-height: 45px
+      padding: 5px 0
+    &__logo
+      img
+        max-width: 97px
+    &__form
+      padding: 0 15px
+      &--active
+    &__form-btn-submit,
+    &__form-btn-close
+      svg
+        width: 18px
+        height: 18px
+    &__search-btn-open
+      width: 18px
+      height: 18px
+
+  .topnav
+    &__burger
+      max-width: 28px
+      max-height: 18px
+      .burger-open,
+      .burger-close
+        width: 28px
+        height: 18px
+      .burger-open
+        position: relative
+      .burger-close
+        position: absolute
+      &--active
+        .burger-close
+          position: relative
+        .burger-open
+          position: absolute
+

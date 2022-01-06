@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'icon';
+  src:  url('/fonts/icon.eot?210id6');
+  src:  url('/fonts/icon.eot?210id6#iefix') format('embedded-opentype'),
+    url('/fonts/icon.ttf?210id6') format('truetype'),
+    url('/fonts/icon.woff?210id6') format('woff'),
+    url('/fonts/icon.svg?210id6#icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icon' !important;
+  /* speak: never; */
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-accordion:before {
+  content: "\e900";
+}
+.icon-arrow-slider:before {
+  content: "\e901";
+}
+.icon-arrow-submenu:before {
+  content: "\e902";
+}
+.icon-burger-close:before {
+  content: "\e903";
+}
+.icon-burger-open:before {
+  content: "\e904";
+}
+.icon-login:before {
+  content: "\e905";
+}
+.icon-search:before {
+  content: "\e906";
+}
+.icon-search-close:before {
+  content: "\e907";
+}
+.icon-tooltip:before {
+  content: "\e908";
+}

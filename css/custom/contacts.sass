@@ -1,0 +1,282 @@
+@import variables.sass
+
+.contacts
+  padding: 0
+  overflow: hidden
+  &__body
+    position: relative
+    display: flex
+    flex-direction: column
+    align-items: start
+    max-width: 500px
+    z-index: 20
+  &__address
+    display: flex
+    flex-direction: column
+  &__name
+    display: inline-block
+    max-width: 100%
+    margin-bottom: 3px
+    font-size: 24px
+    line-height: 32px
+    font-weight: 600
+    word-wrap: break-word
+  &__address
+    max-width: 100%
+    margin-bottom: 28px
+    @include p-font
+    font-style: normal
+    word-wrap: break-word
+  &__wrapper
+    position: relative
+    display: flex
+    align-items: center
+    min-height: 700px
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      top: -1px
+      bottom: -1px
+      width: 650px
+      background: $white
+      border: 1px solid $light-grey
+      z-index: 10
+  &__map
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 5
+
+.contact-container
+  align-items: center
+  flex: 1 0 500px
+
+.contacts-form
+  position: relative
+  margin-bottom: 38px
+  &__title
+    display: inline-block
+    max-width: 100%
+    margin-bottom: 16px
+    font-size: 24px
+    line-height: 32px
+    word-wrap: break-word
+  &__list
+    display: flex
+    flex-direction: column
+    margin-bottom: 23px
+  &__item
+    display: flex
+    flex-direction: column
+    &:not(:last-child)
+      margin-bottom: 23px
+  &__input
+    min-width: 400px
+    min-height: 40px
+    padding: 2px 24px
+    @include p-font
+    color: $grey
+    border: 1px solid $grey
+    border-radius: 100px
+    &::-webkit-input-placeholder
+      color: #999
+      transition: color .3s
+    &::-moz-placeholder
+      color: #999
+      transition: color .3s
+    &:-moz-placeholder
+      color: #999
+      transition: color .3s
+    &:-ms-input-placeholder
+      color: #999
+      transition: color .3s
+    &:focus::-webkit-input-placeholder
+      color: transparent
+    &:focus::-moz-placeholder
+      color: transparent
+    &:focus:-moz-placeholder
+      color: transparent
+    &:focus:-ms-input-placeholder
+      color: transparent
+    &:focus-visible
+      outline: none
+    &:focus-visible,
+    &:hover
+      background-color: $light-grey
+  &__submit
+    position: relative
+    display: inline-block
+    padding: 15px 35px
+    font-size: 18px
+    line-height: 24px
+    font-weight: 700
+    color: $primary
+    border: 2px solid $primary
+    border-radius: 100px
+    &:focus-visible
+      &::before
+        display: inline-block
+    &:hover,
+    &:active
+      color: $white
+
+.callback
+  display: flex
+  flex-direction: column
+  &__list
+    display: flex
+  &__title
+    max-width: 100%
+    display: inline-block
+    margin-bottom: 15px
+    font-size: 24px
+    line-height: 32px
+    word-wrap: break-word
+  &__item
+    &:not(:last-child)
+      margin-right: 20px
+  &__link
+    display: inline-block
+    img
+      transition-property: opacity, border-color
+      border: 1px solid transparent
+      border-radius: 50%
+    &:focus-visible
+      outline: none
+      img
+        opacity: 0.6
+    &:hover
+      img
+        opacity: .5
+    &:active
+      img
+        opacity: 1
+        border-color: $dark-primary
+
+[class*="ground-pane"]
+  filter: grayscale(1)
+
+.ymaps-2-1-79-map-copyrights-promo
+  display: none
+.ymaps-2-1-79-copyright__wrap
+  display: none !important
+
+
+//*  validate
+.js-validate-error-label
+  padding: 0 20px
+  font-size: 12px
+  line-height: 16px
+  order: -1
+
+
+@media screen and ( max-width: 1200px )
+  .contacts
+    &__wrapper
+      &::before
+        max-width: 48%
+    &__map
+      left: 300px
+  .contacts-form
+    &__input
+      min-width: 335px
+
+@media screen and ( max-width: 1024px )
+  .contacts
+    &__body
+      padding-top: 25px
+    &__map
+      left: 250px
+  .callback
+    &__item
+      &:not(:last-child)
+        margin-right: 30px
+    &__link
+      img
+        width: 60px
+
+@media screen and ( max-width: 992px )
+  .contacts
+    &__wrapper
+      &::before
+        max-width: 55%
+
+@media screen and ( max-width: 767px )
+  .contacts
+    &__body
+      max-width: 100%
+      padding-bottom: 50px
+    &__map
+      top: 90px
+      left: 0
+      bottom: unset
+      z-index: 20
+      height: 320px
+    &__wrapper
+      &::before
+        content: none
+    &__address
+      margin-bottom: 350px
+      font-size: 14px
+      line-height: 19px
+
+  .contact-container
+    flex: 1 1 auto
+
+  .contact-map
+    max-height: 320px
+
+@media screen and ( max-width: 576px )
+  .contacts-form
+    display: flex
+    flex-direction: column
+    align-items: start
+    width: 100%
+    &__list
+      width: 100%
+    &__input
+      min-width: 100%
+
+@media screen and ( max-width: 320px )
+  .contacts
+    &__title
+      margin-bottom: 10px
+    &__body
+      padding-top: 0
+      padding-bottom: 30px
+    &__address
+      margin-bottom: 360px
+    &__name
+      margin-bottom: 0
+      font-size: 18px
+      line-height: 24px
+    &__map
+      top: 60px
+  .contacts-form
+    margin-bottom: 23px
+    &__list
+      margin-bottom: 20px
+    &__item
+      &:not(:last-child)
+        margin-bottom: 20px
+    &__title
+      margin-bottom: 21px
+      font-size: 18px
+      line-height: 24px
+    &__submit
+      padding: 6px 33px
+      font-size: 12px
+  .callback
+    &__title
+      margin-bottom: 12px
+      font-size: 18px
+      line-height: 24px
+    &__item
+      &:not(:last-child)
+        margin-right: 20px
+    &__link
+      img
+        width: 50px

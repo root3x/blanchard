@@ -1,0 +1,524 @@
+@import variables.sass
+
+.header
+  position: relative
+  display: flex
+  flex-direction: column
+  z-index: 50
+  &__container
+    position: relative
+    @include fbc
+    // height: 100%
+  &__top
+    flex: 1 1 100%
+    min-height: 100px
+    padding: 30px 0
+    background-color: $black
+  &__bottom
+    position: relative
+    min-height: 70px
+    padding: 22px 0
+    background-color: rgba(0, 0, 0, .4)
+
+.top-header
+  &__right
+    display: flex
+  &__logo
+    display: flex
+    justify-content: center
+    align-items: center
+    &:focus-visible
+      outline: 1px solid $primary
+      outline-offset: 5px
+  &__login
+    display: flex
+    align-items: center
+    color: $white
+    word-wrap: break-word
+    .icon
+      font-size: 13px
+      margin-right: 7px
+  &__login-text
+    max-width: 120px
+    word-wrap: break-word
+
+.topsearch
+  @include fbc
+  display: none
+  .icon
+    font-size: 28px
+    color: $white
+  .icon-search-close
+    color: #e5e5e5
+  &__btn
+    &:focus-visible
+      outline: none
+      color: $primary
+  &__form
+    @include fbc
+  &__input
+    min-width: 218px
+    padding: 0
+    font-size: 18px
+    line-height: 24.5px
+    color: $white
+    background-color: transparent
+    border: unset
+    border-bottom: 1px solid $white
+    transition: border-bottom .3s
+    &::-webkit-input-placeholder
+      color: $white
+      transition: color .3s
+    &::-moz-placeholder
+      color: $white
+      transition: color .3s
+    &:-moz-placeholder
+      color: $white
+      transition: color .3s
+    &:-ms-input-placeholder
+      color: $white
+      transition: color .3s
+    &:focus::-webkit-input-placeholder
+      color: transparent
+    &:focus::-moz-placeholder
+      color: transparent
+    &:focus:-moz-placeholder
+      color: transparent
+    &:focus:-ms-input-placeholder
+      color: transparent
+    &:focus-visible,
+    &:hover
+      outline: none
+      border-bottom: 1px solid $light-primary
+    &:focus
+      border-bottom: 1px solid $primary
+  &__btn-submit
+    margin-right: 10px
+  &__btn-close
+      display: none
+
+.topnav
+  display: flex
+  align-items: center
+  flex: 0 1 62%
+  &__list
+    display: flex
+    justify-content: space-between
+    flex-basis: 91%
+    // white-space: nowrap
+  &__item
+    &:not(:last-child)
+      margin-right: 10px
+  &__item-join
+    display: none
+  &__link
+    display: inline-block
+    max-width: 100px
+    color: $white
+    word-wrap: break-word
+  &__burger
+    display: none
+    font-size: 26px
+    color: $white
+    &:focus-visible
+      outline: 1px solid $primary
+      outline-offset: 5px
+
+.bottomnav
+  display: flex
+  flex: 0 0 64.5%
+  &__list
+    @include fbc
+    flex: 1
+  &__item
+    position: relative
+    &:not(:last-child)
+      margin-right: 10px
+  &__link
+    display: flex
+    align-items: center
+    font-size: 18px
+    line-height: 24.5px
+    color: $white
+    .icon
+      margin-left: 3px
+      font-size: 7px
+      transition: transform .3s
+    &--active
+      color: $primary
+      .icon
+        margin-top: 3px
+        transform: rotate(-180deg)
+  &__link-text
+    max-width: 230px
+    word-wrap: break-word
+
+.subnav
+  position: absolute
+  left: 0
+  padding: 40px
+  width: 300px
+  max-height: 300px
+  display: flex
+  flex-direction: column
+  overflow-y: auto
+  background-color: rgba(0, 0, 0, .2)
+  transform: translateY(-450px)
+  visibility: hidden
+  opacity: 0
+  user-select: none
+  pointer-events: none
+  transition-property: visibility, opacity, transform
+  transition-duration: .3s
+  transition-timing-function: ease-in-out
+  z-index: 10
+  &__active
+    pointer-events: auto
+    transform: translateY(23px)
+    visibility: visible
+    opacity: 1
+  &__item
+    &:not(:last-child)
+      margin-bottom: 20px
+  &__link
+    position: relative
+    display: block
+    min-width: 220px
+    padding: 10px 14px
+    font-size: 14px
+    line-height: 20px
+    font-weight: 600
+    word-wrap: break-word
+    color: $white
+    background-position: center center
+    background-size: cover
+    outline: 2px solid transparent
+    transition: outline .3s
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background-color: transparent
+      transition: background-color .3s
+    &:focus-visible,
+    &:hover
+      outline: 2px solid $primary
+    &:active
+      outline: 2px solid $light-primary
+      &::before
+        background-color: #C283F366
+  .tintoretto
+    background-image: url('/img/dropdown/tintoretto.png')
+  .fridrikh
+    background-image: url('/img/dropdown/fridrikh.jpg')
+  .leonardo
+    background-image: url('/img/dropdown/leonardo.jpg')
+  .verrokiu
+    background-image: url('/img/dropdown/verrokiu.jpg')
+  .mone
+    background-image: url('/img/dropdown/mone.jpg')
+  .sisley
+    background-image: url('/img/dropdown/sisley.jpg')
+  .mane
+    background-image: url('/img/dropdown/mane.jpg')
+  .renuar
+    background-image: url('/img/dropdown/renuar.jpg')
+  .vangog
+    background-image: url('/img/dropdown/vangog.jpg')
+  .sezann
+    background-image: url('/img/dropdown/sezann.jpg')
+  .gogen
+    background-image: url('/img/dropdown/gogen.jpg')
+  .sera
+    background-image: url('/img/dropdown/sera.jpg')
+  .kandiyskiy
+    background-image: url('/img/dropdown/kandiyskiy.jpg')
+  .marinetty
+    background-image: url('/img/dropdown/marinetty.jpg')
+  .malevich
+    background-image: url('/img/dropdown/malevich.jpg')
+  .picasso
+    background-image: url('/img/dropdown/picasso.jpg')
+  .kappa
+    background-image: url('/img/dropdown/kappa.jpg')
+  .pratella
+    background-image: url('/img/dropdown/pratella.jpg')
+  .severiny
+    background-image: url('/img/dropdown/severiny.jpg')
+  .balla
+    background-image: url('/img/dropdown/balla.jpg')
+
+.botsearch
+  display: flex
+  align-items: center
+  flex: 0 0 auto
+  .icon
+    margin-right: 10px
+    font-size: 21px
+    color: $white
+  &__form
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    flex: 1
+  &__input
+    min-width: 220px
+  &__btn
+    &:focus-visible
+      .icon
+        color: $primary
+
+//* submenu simplebar
+.simplebar-track
+  width: 2px !important
+  right: 19px
+  top: 40px !important
+  bottom: 40px
+  background-color: $black
+
+.simplebar-scrollbar
+  background: $white
+  &::before
+    width: 2px
+    opacity: 1 !important
+
+.simplebar-track.simplebar-vertical .simplebar-scrollbar:before
+  top: 0
+  bottom: 0
+
+
+
+
+@media screen and ( max-width: 1200px )
+  .top-header
+    &__login
+      display: none
+  .topsearch
+    display: flex
+    overflow: hidden
+    &__form
+      position: absolute
+      width: 0
+      height: 0
+      opacity: 0
+      visibility: hidden
+      overflow: hidden
+      z-index: 200
+      transform: translateX(150%)
+      transition: transform .3s
+      &--active
+        position: relative
+        width: auto
+        height: auto
+        opacity: 1
+        visibility: visible
+        transform: translateX(0)
+        transition: transform .3s
+    &__btn-open
+      display: flex
+      &--active
+        display: none
+  .topnav
+    order: -1
+    flex: 0 0 40px
+    &__list
+      // display: none
+      position: absolute
+      left: 0
+      top: -30px
+      width: 100vw
+      height: 100vh
+      padding: 100px 50px 50px 50px
+      flex-direction: column
+      justify-content: start
+      align-items: start
+      font-size: 24px
+      line-height: 64px
+      z-index: 100
+      pointer-events: none
+      user-select: none
+      background-color: rgba(0, 0, 0, .9)
+      transform: translateX(-101%)
+      transition: transform .3s ease-in
+      &--active
+        position: fixed
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        overflow: auto
+        pointer-events: auto
+        user-select: auto
+        transform: translateX(0)
+        .topnav
+          &__item
+            &:nth-last-child(2)
+              margin-bottom: 30px
+    &__burger
+      display: flex
+      z-index: 120
+      .icon-burger-open
+        width: auto
+        height: auto
+        visibility: visible
+        opacity: 1
+      .icon-burger-close
+        width: 0
+        height: 0
+        visibility: hidden
+        opacity: 0
+        transform: rotate(-45deg)
+        transition: transform .3s
+      &--active
+        position: fixed
+        .icon-burger-open
+          width: 0
+          height: 0
+          visibility: hidden
+          opacity: 0
+        .icon-burger-close
+          width: auto
+          height: auto
+          visibility: visible
+          opacity: 1
+          transform: rotate(0)
+          transiton: transform .3s
+        &::before
+          content: ''
+          position: fixed
+          top: 0
+          right: 0
+          left: 0
+          height: 100px
+          background-color: rgba(0, 0, 0, 0.9)
+    &__item
+      &:not(:last-child)
+        margin-right: 0
+    &__item-join
+      display: flex
+      margin-top: auto
+    &__link
+      max-width: unset
+    &__link-join
+      display: flex
+      align-items: center
+      padding: 15px 80px
+      border: 2px solid $primary
+      border-radius: 100px
+      .icon-login
+        margin-right: 5px
+        font-size: 13px
+      &::before
+        transition: border 0
+      &:focus-visible
+        &::before
+          border-radius: 100px
+        span
+          color: $white
+      &:active
+        background-color: $primary
+        span
+          color: $white
+
+@media screen and ( max-width: 1024px )
+  .header
+    &__bottom
+      display: none
+
+@media screen and ( max-width: 768px )
+  .topsearch
+    &__form
+      &--active
+        position: absolute
+        left: 0
+        top: 0
+        padding: 0 50px
+        justify-content: space-between
+        height: 100%
+        width: 100%
+        background-color: $black
+        .topsearch__btn-close
+          display: flex
+        .topsearch__input
+          flex-basis: 80%
+    &__btn-open
+      &--active
+        display: flex
+    &__btn-submit
+      margin-right: 0
+
+
+
+@media screen and ( max-width: 576px )
+  .top-header
+    &__logo
+      img
+        max-width: 80%
+  .topnav
+    flex: 0 0 15px
+    &__burger
+      .icon
+        font-size: 25px
+    &__list
+      padding: 100px 25px 30px 25px
+      line-height: 55px
+    &__link-join
+  .topsearch
+    &__form
+      &--active
+        padding: 0 20px
+    .icon
+      font-size: 25px
+
+
+@media screen and ( max-width: 320px )
+  .header
+    &__top
+      min-height: 45px
+      padding: 10px 0
+  .top-header
+    &__logo
+      img
+        max-width: 96px
+  .topnav
+    flex: 0 0 15px
+    &__burger
+      .icon
+        font-size: 15px
+      &--active
+        &::before
+          height: 45px
+    &__list
+      top: -10px
+      padding: 45px 15px 30px 15px
+      line-height: 32px
+    &__link
+      @include p-font
+    &__link-join
+      padding: 5px 25px
+
+  .topsearch
+    &__form
+      transform: translate(0, -101%)
+      background-color: rgba(0, 0, 0, .9)
+      &--active
+        height: 75px
+        padding: 0 15px
+        transform: translate(0)
+    &__input,
+    &__btn-submit
+      align-self: flex-end
+      margin-bottom: 20px
+    &__btn-close
+      align-self: flex-start
+      justify-self: flex-end
+      margin-top: 15px
+    &__input
+      flex: 0 0 auto
+      min-width: 180px
+      font-size: 16px
+    .icon
+      font-size: 15px

@@ -1,0 +1,220 @@
+.hero {
+  position: relative;
+  min-height: 630px;
+  color: #fff;
+}
+
+.hero__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.hero__slider {
+  position: absolute;
+  left: 0;
+  top: -170px;
+  right: 0;
+  bottom: 0;
+  min-height: 800px;
+  z-index: 10;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+.hero__content {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 40%;
+          flex: 0 1 40%;
+  min-height: 440px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.hero__title {
+  margin-bottom: 20px;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 82px;
+  word-wrap: break-word;
+}
+
+.hero__descr {
+  max-width: 90%;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 30px;
+  word-wrap: break-word;
+}
+
+.hero__btn {
+  position: relative;
+  display: inline-block;
+  margin-top: auto;
+  max-width: 320px;
+  padding: 22px 33px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24.5px;
+  background-color: #9D5CD0;
+  border-radius: 100px;
+  border: 3px solid transparent;
+  pointer-events: auto;
+  word-wrap: break-word;
+}
+
+.hero__btn:hover, .hero__btn:active {
+  border-width: 3px;
+}
+
+.heroslider {
+  height: 100%;
+  overflow: hidden;
+}
+
+.heroslider__slide {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.heroslider__slide img,
+.heroslider__slide source,
+.heroslider__slide picture {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.heroslider__swiper-slide-active {
+  -webkit-animation: heroAnimate 7s;
+          animation: heroAnimate 7s;
+}
+
+@-webkit-keyframes heroAnimate {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes heroAnimate {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .hero__content {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 80%;
+            flex: 0 1 80%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .hero {
+    padding: 114px 0;
+  }
+  .hero__title {
+    margin-bottom: 13px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero__content {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 100%;
+            flex: 0 1 100%;
+  }
+  .hero__title {
+    font-size: 10vw;
+    line-height: 10vw;
+    margin-bottom: 25px;
+  }
+  .hero__descr {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .hero {
+    min-height: unset;
+  }
+  .hero__slider {
+    min-height: 355px;
+  }
+  .hero__content {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    min-height: 235px;
+  }
+  .hero__descr {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .hero__btn {
+    font-size: 12px;
+    line-height: 16px;
+    padding: 12px 20px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .hero {
+    padding: 30px 0 45px 0;
+  }
+  .hero__slider {
+    min-height: 480px;
+    max-height: 480px;
+  }
+  .hero__title {
+    margin-bottom: 10px;
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .hero__descr {
+    max-width: 90%;
+  }
+  .hero__btn {
+    padding: 10px 18px;
+  }
+}
+/*# sourceMappingURL=hero.css.map */
