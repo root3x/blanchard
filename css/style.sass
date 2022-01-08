@@ -77,8 +77,7 @@ button
   all: unset
   cursor: pointer
 
-.main
-  overflow: hidden
+
 
 .visually-hidden
   position: absolute
@@ -219,14 +218,15 @@ button
   .container
     padding: 0 50px
 
-// @media screen and ( max-width: 1200px )
+@media screen and ( max-width: 1024px )
+  .main
+    overflow: hidden
 
 @media screen and ( max-width: 576px )
   .container
     padding: 0 25px
   .main
     overflow: hidden
-
 
 @media screen and ( max-width: 320px )
   .container

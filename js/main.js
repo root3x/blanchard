@@ -187,29 +187,59 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })
 
-  //* catalog tabs  head*/
+  //* catalog tabs  head*/  old
+  // const tabNavs = document.querySelectorAll('.catalog-tabs__btn')
+  // const tabPanes = document.querySelectorAll('.catalog__content')
+
+  // for (let i = 0; i < tabNavs.length; i++) {
+
+  //   tabNavs[i].addEventListener('click', function(e){
+  //     e.preventDefault()
+  //     const activeTabAttr = e.target.getAttribute('data-target')
+
+  //     for (let j = 0; j < tabNavs.length; j++) {
+  //       const contentAttr = tabPanes[j].getAttribute('data-content')
+
+  //       if (activeTabAttr === contentAttr) {
+  //         tabNavs[j].classList.add('catalog-tabs__btn--active')
+  //         tabPanes[j].classList.add('catalog__content--active')
+  //       } else {
+  //         tabNavs[j].classList.remove('catalog-tabs__btn--active')
+  //         tabPanes[j].classList.remove('catalog__content--active')
+  //       }
+  //     }
+  //   })
+  // }
+
+  //* catalog tabs  head*/  new
   const tabNavs = document.querySelectorAll('.catalog-tabs__btn')
   const tabPanes = document.querySelectorAll('.catalog__content')
 
-  for (let i = 0; i < tabNavs.length; i++) {
+  tabNavs.forEach(btn => {
+    btn.addEventListener("click", function (e) {
+      let path = this.getAttribute("data-target")
 
-    tabNavs[i].addEventListener('click', function(e){
-      e.preventDefault()
-      const activeTabAttr = e.target.getAttribute('data-target')
+      tabPanes.forEach(el => el.classList.remove("catalog__content--active"))
+      tabNavs.forEach(btn => btn.classList.remove("catalog-tabs__btn--active"))
 
-      for (let j = 0; j < tabNavs.length; j++) {
-        const contentAttr = tabPanes[j].getAttribute('data-content')
-
-        if (activeTabAttr === contentAttr) {
-          tabNavs[j].classList.add('catalog-tabs__btn--active')
-          tabPanes[j].classList.add('catalog__content--active')
-        } else {
-          tabNavs[j].classList.remove('catalog-tabs__btn--active')
-          tabPanes[j].classList.remove('catalog__content--active')
-        }
-      }
+      this.classList.add("catalog-tabs__btn--active");
+      document.querySelector(`[data-content='${path}']`).classList.add("catalog__content--active")
     })
-  }
+  })
+  tabPanes.forEach(tabContent => {
+    let btns = tabContent.querySelectorAll(".accordion__link");
+    btns.forEach(btn => {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        let path = this.getAttribute("data-name");
+        tabContent.querySelectorAll(".painter").forEach(el => el.classList.remove("painter--active"));
+        btns.forEach(btn => btn.classList.remove("accordion__link--active"))
+        btn.classList.add("accordion__link--active");
+        tabContent.querySelector(`.painter[data-painter='${path}']`).classList.add("painter--active");
+      })
+    })
+  })
+
 
   //* catalog accordion
   const acc = document.querySelectorAll('.accordion')
@@ -222,31 +252,6 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   }
 
-
-  //* catalog painer switcher
-  const tabsPainter = document.querySelectorAll('.catalog__wrapper')
-  const painterLink = document.querySelectorAll('.accordion__link')
-  const painter = document.querySelectorAll('.painter')
-
-  if (tabsPainter) {
-    const tabsHandler = (tabLinks) => {
-      tabLinks.forEach(el => {
-        const path = el.dataset.name;
-        el.addEventListener('click', (e) => {
-          e.preventDefault()
-          painterLink.forEach(el => {el.classList.remove('accordion__link--active')})
-          e.target.classList.add('accordion__link--active')
-          painter.forEach(el => {el.classList.remove('painter--active')})
-          document.querySelector(`[data-painter="${path}"]`).classList.add('painter--active')
-        })
-      })
-    }
-
-    tabsPainter.forEach(el => {
-      const tabsLinks = el.querySelectorAll('.accordion__link')
-      tabsHandler(tabsLinks)
-    })
-  }
 
   //*  events  show all btn
   const eventShow = document.querySelector('.events__all-show')
@@ -542,7 +547,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         act.scrollIntoView({
           behavior: 'smooth',
-          block: 'start'
+          block: 'end'
         })
       })
     }
