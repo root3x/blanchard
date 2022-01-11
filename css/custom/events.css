@@ -143,7 +143,7 @@
   color: #fff;
 }
 
-.event-card__invisible {
+.event-card--invisible {
   display: none;
 }
 

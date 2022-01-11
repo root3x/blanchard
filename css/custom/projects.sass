@@ -114,7 +114,7 @@
     display: flex
     align-items: center
     justify-content: center
-    width: 100%
+    width: 99%
     height: 150px
     outline: 1px solid #cacaca
     outline-offset: -1px
@@ -144,17 +144,20 @@
     width: 30px
     height: 30px
     border-radius: 50%
-    background-color: #cacaca
+    background-color: #ececec
     border: 2px solid transparent
     transition-property: background-color, border
     transition-duration: .3s
     cursor: pointer
-    &::after
+    &::before
+      content: url(/img/icons/arrow-partner.svg)
       position: absolute
       display: block
       font-size: 10px
-      color: $white
+      stroke: $black !important
+      fill: $black !important
     &:focus-visible
+      outline: none
       border: 2px solid $primary
     &:hover
       background-color: $light-primary

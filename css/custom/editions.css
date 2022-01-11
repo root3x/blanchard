@@ -531,9 +531,6 @@
     display: -ms-flexbox;
     display: flex;
   }
-  .checkboxes__item--show .checkboxes__btn-close {
-    display: block;
-  }
   .checkboxes__label {
     width: 100%;
   }
@@ -541,8 +538,9 @@
     position: absolute;
     right: 0;
     top: 50%;
-    width: 12px;
-    height: 12px;
+    width: 15px;
+    height: 15px;
+    pointer-events: none;
   }
   .checkboxes__btn-close:before, .checkboxes__btn-close::after {
     content: '';
@@ -560,6 +558,9 @@
   .checkboxes__btn-close::after {
     -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
+  }
+  .checkboxes__input:checked ~ .checkboxes__btn-close {
+    display: block;
   }
 }
 

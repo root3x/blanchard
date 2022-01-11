@@ -119,10 +119,6 @@ document.addEventListener('DOMContentLoaded', function () {
     loop: false,
     spaceBetween: 50,
     autoHeight: true,
-    // autoplay: {
-    //   delay: 7000,
-    //   disableOnInteraction: false
-    // },
     slidesPerView: 6,
     slidesPerGroup: 6,
     grid: {
@@ -187,29 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })
 
-  //* catalog tabs  head*/  old
-  // const tabNavs = document.querySelectorAll('.catalog-tabs__btn')
-  // const tabPanes = document.querySelectorAll('.catalog__content')
 
-  // for (let i = 0; i < tabNavs.length; i++) {
-
-  //   tabNavs[i].addEventListener('click', function(e){
-  //     e.preventDefault()
-  //     const activeTabAttr = e.target.getAttribute('data-target')
-
-  //     for (let j = 0; j < tabNavs.length; j++) {
-  //       const contentAttr = tabPanes[j].getAttribute('data-content')
-
-  //       if (activeTabAttr === contentAttr) {
-  //         tabNavs[j].classList.add('catalog-tabs__btn--active')
-  //         tabPanes[j].classList.add('catalog__content--active')
-  //       } else {
-  //         tabNavs[j].classList.remove('catalog-tabs__btn--active')
-  //         tabPanes[j].classList.remove('catalog__content--active')
-  //       }
-  //     }
-  //   })
-  // }
 
   //* catalog tabs  head*/  new
   const tabNavs = document.querySelectorAll('.catalog-tabs__btn')
@@ -227,14 +201,14 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   })
   tabPanes.forEach(tabContent => {
-    let btns = tabContent.querySelectorAll(".accordion__link");
+    let btns = tabContent.querySelectorAll(".accordion-content__link");
     btns.forEach(btn => {
       btn.addEventListener("click", function (e) {
         e.preventDefault();
         let path = this.getAttribute("data-name");
         tabContent.querySelectorAll(".painter").forEach(el => el.classList.remove("painter--active"));
-        btns.forEach(btn => btn.classList.remove("accordion__link--active"))
-        btn.classList.add("accordion__link--active");
+        btns.forEach(btn => btn.classList.remove("accordion-content__link--active"))
+        btn.classList.add("accordion-content__link--active");
         tabContent.querySelector(`.painter[data-painter='${path}']`).classList.add("painter--active");
       })
     })
@@ -243,12 +217,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //* catalog accordion
   const acc = document.querySelectorAll('.accordion')
-  const accCont = document.querySelectorAll('.accordion__content')
+  const accCont = document.querySelectorAll('.accordion-content')
 
   for (let g = 0; g < acc.length; g++) {
     acc[g].addEventListener('click', function() {
-      acc[g].classList.toggle('accordion__btn-active')
-      accCont[g].classList.toggle('accordion__content--active')
+      acc[g].classList.toggle('accordion--active')
+      accCont[g].classList.toggle('accordion-content--active')
     })
   }
 
@@ -256,18 +230,18 @@ document.addEventListener('DOMContentLoaded', function () {
   //*  events  show all btn
   const eventShow = document.querySelector('.events__all-show')
   const eventHide = document.querySelector('.events__all-hide')
-  const eventCard = document.querySelectorAll('.event-card__invisible')
+  const eventCard = document.querySelectorAll('.event-card--invisible')
   const overCard = document.querySelector('.events__over')
 
   for (let l = 0; l < eventCard.length; l++) {
     eventShow.addEventListener('click', function(){
-      eventCard[l].classList.remove('event-card__invisible')
+      eventCard[l].classList.remove('event-card--invisible')
       eventShow.classList.add('events__all-show--remove')
       eventHide.classList.add('events__all-hide--visible')
       overCard.classList.add('events__over--visible')
     })
     eventHide.addEventListener('click', function() {
-      eventCard[l].classList.add('event-card__invisible')
+      eventCard[l].classList.add('event-card--invisible')
       eventShow.classList.remove('events__all-show--remove')
       eventHide.classList.remove('events__all-hide--visible')
       overCard.classList.remove('events__over--visible')
@@ -388,44 +362,43 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //* editions dropdown
   const publicationBtn = document.querySelector('.checkboxes__mobile');
-  const publicationFormLabel = document.querySelectorAll('.checkboxes__label')
-  const publicationFormInput = document.querySelectorAll('.checkboxes__input')
-  const checkboxesItem = document.querySelectorAll('.checkboxes__item')
-  const checkboxesClose = document.querySelectorAll('.checkboxes__btn-close')
+  const publicationFormLabel = document.querySelectorAll('.checkboxes__label');
+  const publicationFormInput = document.querySelectorAll('.checkboxes__input');
+
+
 
   const showActiveCheckbox = () => {
     publicationFormInput.forEach(el => {
       if (el.checked === true) {
-        el.parentNode.classList.add('checkboxes__item--active', 'checkboxes__item--show')
+        el.parentNode.classList.add('checkboxes__item--active')
       }
     })
   }
 
 
   publicationBtn.addEventListener('click', () => {
-    publicationBtn.classList.toggle('checkboxes__mobile--active')
-    // publicationBtnArrow.classList.toggle('arrow-active');
-    checkboxesItem.forEach(el => {
-      el.classList.toggle('checkboxes__item--active')
-      showActiveCheckbox()
+    publicationBtn.classList.toggle('checkboxes__mobile--active');
+    publicationFormLabel.forEach(el => {
+      el.parentNode.classList.toggle('checkboxes__item--active')
+      showActiveCheckbox();
     })
   })
 
 
-  const publicationCheck = () => {
-    for (let i = 0; i < publicationFormInput.length; i++) {
-      const el = publicationFormInput[i]
-      el.addEventListener('change', () => {
-        if (!el.checked && !publicationBtnArrow.classList.contains('arrow-active')) {
-          el.parentNode.classList.remove('checkboxes__item--active', 'checkboxes__item--show')
-        }
 
-        showActiveCheckbox()
-      })
-    }
+  for (let i = 0; i < publicationFormInput.length; i++) {
+    const el = publicationFormInput[i];
+    el.addEventListener('change', () => {
+      if (!el.checked && !publicationBtn.classList.contains('checkboxes__mobile--active')) {
+        el.parentNode.classList.remove('checkboxes__item--active');
+      }
 
-    showActiveCheckbox()
+      showActiveCheckbox();
+    })
   }
+
+  showActiveCheckbox();
+
 
   //*  partners swiper
   const swiperPartners = new Swiper('.partners__slider', {
@@ -566,6 +539,33 @@ document.addEventListener('DOMContentLoaded', function () {
       accordinScroll().destroy()
     }
   })
+
+
+
+ //*  smooth scroll
+  const linkNav = document.querySelectorAll('.topnav__link[href^="#"]'), //выбираем все ссылки к якорю на странице
+    V = 0.2;  // скорость, может иметь дробное значение через точку (чем меньше значение - тем больше скорость)
+  for (let i = 0; i < linkNav.length; i++) {
+      linkNav[i].addEventListener('click', function(e) { //по клику на ссылку
+          e.preventDefault(); //отменяем стандартное поведение
+          let w = window.pageYOffset,  // производим прокрутка прокрутка
+              hash = this.href.replace(/[^#]*(.*)/, '$1');  // к id элемента, к которому нужно перейти
+          t = document.querySelector(hash).getBoundingClientRect().top,  // отступ от окна браузера до id
+              start = null;
+          requestAnimationFrame(step);  // подробнее про функцию анимации [developer.mozilla.org]
+          function step(time) {
+              if (start === null) start = time;
+              var progress = time - start,
+                  r = (t < 0 ? Math.max(w - progress/V, w + t) : Math.min(w + progress/V, w + t));
+              window.scrollTo(0,r);
+              if (r != w + t) {
+                  requestAnimationFrame(step)
+              } else {
+                  location.hash = hash  // URL с хэшем
+              }
+          }
+      }, false);
+  }
 
 
 })

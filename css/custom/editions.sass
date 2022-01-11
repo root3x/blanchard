@@ -338,9 +338,6 @@
         border-bottom: 1px solid rgba(255, 255, 255, .5)
       &--active
         display: flex
-      &--show
-        .checkboxes__btn-close
-          display: block
     &__label
       width: 100%
     &__btn-close
@@ -348,8 +345,9 @@
       position: absolute
       right: 0
       top: 50%
-      width: 12px
-      height: 12px
+      width: 15px
+      height: 15px
+      pointer-events: none
       &:before, &::after
         content: ''
         position: absolute
@@ -362,6 +360,8 @@
         transform: rotate(-45deg)
       &::after
         transform: rotate(45deg)
+    &__input:checked ~ &__btn-close
+      display: block
 
 @media screen and ( max-width: 320px )
   .editions
