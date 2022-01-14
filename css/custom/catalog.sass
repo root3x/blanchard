@@ -331,9 +331,14 @@
       color: $dark-primary
 
 
+@media screen and ( max-width: 1420px )
+  .accordion-content
+    &__list
+      align-content: space-between
+      width: 100%
 
 @media screen and ( max-width: 1200px )
-  .accordion
+  .accordion-content
     &__list
       width: 100%
       max-height: 450px
@@ -346,9 +351,13 @@
       margin-right: 30px
     &__accord
       flex: 0 1 47%
-  .accordion
+  .accordion-content
     &__list
       align-content: space-between
+    &__no-img
+      margin-left: 10px
+    &__no-subtext
+      max-width: 100%
 
 @media screen and ( max-width: 768px )
   .catalog
@@ -368,9 +377,15 @@
       height: 42px
     &__list
       flex: 0 1 460px
-  .accordion
+  .accordion-content
     &__list
       max-height: 340px
+      overflow: auto
+
+@media screen and ( max-width: 670px )
+  .accordion-content
+    &__list
+      max-height: 450px
       overflow: auto
 
 @media screen and ( max-width: 576px )
@@ -386,9 +401,24 @@
     flex: 0 0 100%
     &__list
       flex: 0 1 100%
-  .accordion
+  .accordion-content
+    &__item-no
+      flex-direction: column
+    &__no-img
+      margin-left: 0
+      margin-right: 0
+      margin-bottom: 20px
+      max-width: 80%
+    &__no-title
+      font-size: 20px
+    &__no-subtext
+      max-width: 100%
+
+@media screen and ( max-width: 430px )
+  .accordion-content
     &__list
-      max-height: 440px
+      max-height: 100%
+      padding: 20px 0
 
 @media screen and ( max-width: 320px )
   .catalog
@@ -407,15 +437,12 @@
       right: 9px
       top: 36%
       background-image: url('/img/icons/arrow-accordion-320.svg')
-    &__btn-active
+    &--active
       &::after
         right: 1px
         top: 50%
     &__text
       font-size: 18px
-    &__list
-      max-height: 100%
-      padding: 20px 0
   .painter
     &__photo
       margin-bottom: 20px

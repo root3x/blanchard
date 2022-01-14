@@ -286,6 +286,12 @@
           order: -1;
 }
 
+@media screen and (min-width: 1920px) and (max-width: 3800px) {
+  .contacts__wrapper::before {
+    width: 40%;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .contacts__wrapper::before {
     max-width: 48%;

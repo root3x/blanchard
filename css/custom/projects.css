@@ -267,6 +267,18 @@
   border: 2px solid #9D5CD0;
 }
 
+.partners__btn--disable {
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.partners__btn--disable::before {
+  opacity: 0.3;
+}
+
 @media screen and (max-width: 1200px) {
   .projects__descr {
     max-width: 100%;
@@ -308,7 +320,6 @@
   .projects__descr {
     margin-bottom: 10px;
     line-height: 32px;
-    letter-spacing: 1px;
   }
   .partners__title {
     margin-bottom: 10px;

@@ -164,6 +164,11 @@
     &:active
       background-color: $light-primary
       border: 2px solid $primary
+    &--disable
+      pointer-events: none
+      user-select: none
+      &::before
+        opacity: 0.3
 
 
 @media screen and ( max-width: 1200px )
@@ -200,7 +205,7 @@
     &__descr
       margin-bottom: 10px
       line-height: 32px
-      letter-spacing: 1px
+      // letter-spacing: 1px
   .partners
     &__title
       margin-bottom: 10px

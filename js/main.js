@@ -409,7 +409,7 @@ document.addEventListener('DOMContentLoaded', function () {
     navigation: {
       nextEl: '.partners__btn--next',
       prevEl: '.partners__btn--prev',
-      lockClass: 'partners__btn--lock'
+      disabledClass: 'partners__btn--disable'
     },
     wrapperClass: 'partners__wrapper',
     slideClass: 'partners__swiper-slide',
@@ -509,18 +509,18 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 
   //*  scroll accordion
-  const smoothLinks = document.querySelectorAll('.accordion__link')
+  const smoothLinks = document.querySelectorAll('.accordion-content__link')
 
   const accordinScroll = () => {
     // const smoothLinks = document.querySelectorAll('.accordion__link')
     for (let smoothLink of smoothLinks) {
       smoothLink.addEventListener('click', function (e) {
         e.preventDefault()
-        const act = document.querySelector('.painter--active')
+        const act = document.querySelector('.catalog__info')
 
         act.scrollIntoView({
           behavior: 'smooth',
-          block: 'end'
+          block: 'start'
         })
       })
     }
