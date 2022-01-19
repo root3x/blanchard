@@ -236,17 +236,49 @@ document.addEventListener('DOMContentLoaded', function () {
   for (let l = 0; l < eventCard.length; l++) {
     eventShow.addEventListener('click', function(){
       eventCard[l].classList.remove('event-card--invisible')
+      eCard.classList.remove('event-card--invisible')
       eventShow.classList.add('events__all-show--remove')
       eventHide.classList.add('events__all-hide--visible')
       overCard.classList.add('events__over--visible')
     })
     eventHide.addEventListener('click', function() {
       eventCard[l].classList.add('event-card--invisible')
+      // eCard.classList.add('event-card--invisible')
       eventShow.classList.remove('events__all-show--remove')
       eventHide.classList.remove('events__all-hide--visible')
       overCard.classList.remove('events__over--visible')
+      if (window.innerWidth <= 902) {
+        eCard.classList.add('event-card--invisible')
+      } else {
+        eCard.classList.remove('event-card--invisible')
+      }
     })
   }
+
+  //*  events add class invis
+  const eCard = document.querySelector('.event-card:nth-child(3)')
+
+  if (window.innerWidth <= 902 && overCard.classList.contains('events__over--visible')) {
+    eCard.classList.add('event-card--invisible')
+  } else {
+    eCard.classList.remove('event-card--invisible')
+  }
+
+  if (window.innerWidth <= 902) {
+    eCard.classList.add('event-card--invisible')
+  } else {
+    eCard.classList.remove('event-card--invisible')
+  }
+
+  window.addEventListener('resize', function() {
+    if (window.innerWidth <= 902) {
+      eCard.classList.add('event-card--invisible')
+    } else {
+      eCard.classList.remove('event-card--invisible')
+    }
+  })
+
+
 
   // events slider
   const eventsSlider = document.querySelector('.events__slider')
@@ -539,6 +571,7 @@ document.addEventListener('DOMContentLoaded', function () {
       accordinScroll().destroy()
     }
   })
+
 
 
 
