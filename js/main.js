@@ -497,7 +497,49 @@ document.addEventListener('DOMContentLoaded', function () {
           iconImageOffset: [-15, -1]
         })
 
+        ZoomLayout = ymaps.templateLayoutFactory.createClass("<div class='map-btns'>" +
+            "<button id='zoom-in' class='map-btn map-btn-plus'></button>" +
+            "<button id='zoom-out' class='map-btn map-btn-minus'></button>" +
+            "</div>", {
 
+            // Переопределяем методы макета, чтобы выполнять дополнительные действия
+            // при построении и очистке макета.
+            build: function () {
+                // Вызываем родительский метод build.
+                ZoomLayout.superclass.build.call(this);
+
+                // Привязываем функции-обработчики к контексту и сохраняем ссылки
+                // на них, чтобы потом отписаться от событий.
+                this.zoomInCallback = ymaps.util.bind(this.zoomIn, this);
+                this.zoomOutCallback = ymaps.util.bind(this.zoomOut, this);
+
+                // Начинаем слушать клики на кнопках макета.
+                $('#zoom-in').bind('click', this.zoomInCallback);
+                $('#zoom-out').bind('click', this.zoomOutCallback);
+            },
+
+            clear: function () {
+                // Снимаем обработчики кликов.
+                $('#zoom-in').unbind('click', this.zoomInCallback);
+                $('#zoom-out').unbind('click', this.zoomOutCallback);
+
+                // Вызываем родительский метод clear.
+                ZoomLayout.superclass.clear.call(this);
+            },
+
+            zoomIn: function () {
+                var map = this.getData().control.getMap();
+                map.setZoom(map.getZoom() + 1, {checkZoomRange: true});
+            },
+
+            zoomOut: function () {
+                var map = this.getData().control.getMap();
+                map.setZoom(map.getZoom() - 1, {checkZoomRange: true});
+            }
+        }),
+        zoomControl = new ymaps.control.ZoomControl({options: {layout: ZoomLayout}})
+
+        myMap.controls.add(zoomControl)
         myMap.geoObjects.add(myPlacemark)
         myMap.controls.remove('zoomControl')
         myMap.controls.remove('geolocationControl')
@@ -507,7 +549,6 @@ document.addEventListener('DOMContentLoaded', function () {
         myMap.controls.remove('fullscreenControl')
         myMap.controls.remove('rulerControl')
         myMap.controls.remove('searchControl')
-        myMap.controls.remove('fullscreenControl')
         myMap.controls.remove('copyrights')
     }
 

@@ -267,6 +267,9 @@
   .events__wrapper {
     margin-bottom: 42px;
   }
+  .events__slider {
+    margin-bottom: 0;
+  }
   .event-card__img {
     max-height: 200px;
   }

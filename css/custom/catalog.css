@@ -719,7 +719,7 @@
     font-size: 18px;
   }
   .painter__photo {
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
   }
   .painter__name {
     margin-bottom: 15px;

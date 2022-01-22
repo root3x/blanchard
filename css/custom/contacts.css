@@ -65,7 +65,7 @@
   left: 0;
   top: -1px;
   bottom: -1px;
-  width: 650px;
+  width: 700px;
   background: #fff;
   border: 1px solid #ECECEC;
   z-index: 10;
@@ -277,6 +277,78 @@
   display: none !important;
 }
 
+[class*="controls__control"] {
+  inset: 320px auto auto auto !important;
+  right: 10px !important;
+}
+
+.map-btns {
+  position: absolute;
+  top: auto !important;
+  right: 0;
+  bottom: auto !important;
+  border-radius: 7px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.map-btn {
+  width: 30px;
+  height: 30px;
+  background-color: #fcfcfc;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.map-btn-plus::before,
+.map-btn-minus::before {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 22px;
+  line-height: 22px;
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+  opacity: .6;
+  -webkit-transition: all .35s;
+  transition: all .35s;
+}
+
+.map-btn-plus:focus-visible,
+.map-btn-minus:focus-visible {
+  outline: none;
+  color: #C283F3;
+}
+
+.map-btn-plus:hover::before,
+.map-btn-minus:hover::before {
+  color: #9D5CD0;
+  opacity: 1;
+}
+
+.map-btn-plus:active::before,
+.map-btn-minus:active::before {
+  color: #7943A4;
+}
+
+.map-btn-plus::before {
+  content: '+';
+}
+
+.map-btn-minus::before {
+  content: '-';
+}
+
 .js-validate-error-label {
   padding: 0 20px;
   font-size: 12px;
@@ -286,7 +358,7 @@
           order: -1;
 }
 
-@media screen and (min-width: 1920px) and (max-width: 3800px) {
+@media screen and (min-width: 1921px) and (max-width: 3800px) {
   .contacts__wrapper::before {
     width: 40%;
   }
